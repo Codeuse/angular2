@@ -1,0 +1,101 @@
+<button id="add-marker" class="btn btn-default on-map" [class.btn-primary]="editing"
+        title="Ajouter un marker" (click)="toggleEditing()" btnCheckbox>
+    <i class="fa fa-map-marker"></i>
+</button>
+
+<button id="remove-marker" class="btn btn-default on-map" [class.btn-primary]="removing"
+        title="Effacer un marker" (click)="toggleRemoving()" btnCheckbox>
+    <i class="fa fa-trash"></i>
+</button>
+
+<button id="toggle-layer" class="btn btn-default on-map" [class.btn-primary]="airportLayerAdded"
+        title="Toggle the airport layer" (click)="toggleAirPortLayer()" btnCheckbox>
+    <i class="fa fa-plane"></i>
+</button>
+<div class="container">
+	
+
+<div id="userPanel" class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title" *ngIf="usersDatas.length == 0">
+				Aucune donnee
+			</h3>
+		
+		</div>
+
+	<div  class="panel panel-body">
+			<ul class="">
+					<li *ngFor="let user of usersDatas"><a href="#" (click)="gotoAction(user)">{{user.name}}</a></li>
+			</ul>
+	</div>
+	<br>
+</div>
+<div>
+		<div id="postPanel" class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title" *ngIf="postsDatas.length == 0">
+						Aucune donnee
+					</h3>
+				
+				</div>
+		
+			<div  class="panel panel-body">
+					<ul class="">
+							<li *ngFor="let post of postsDatas"><a href="#" (click)="postAction(post.id)">{{post.content}}</a></li>
+					</ul>
+			</div>
+			<br>
+		</div>
+		<div id="commentsPanel" class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title" *ngIf="commentsDatas.length == 0">
+						Aucune donnee
+					</h3>
+				
+				</div>
+		
+			<div  class="panel panel-body">
+					<ul class="">
+							<li *ngFor="let comment of commentsDatas"><a href="" >{{comment.body}}</a></li>
+					</ul>
+			</div>
+			<br>
+		</div>
+
+</div>
+<div class="col-lg-9">
+        <div  class="panel panel-default col-md-4">
+				<div class="panel-heading">
+					<h3 class="panel-title" *ngIf="albumDatas.length == 0">
+						Aucune donnee
+					</h3>
+				
+				</div>
+		
+			<div  class="panel panel-body">
+					<div  class="panel panel-body">
+                            <ul class="">
+                                    <li *ngFor="let list of albumDatas"><a href="#" (click)="albumAction(list.id)">{{list.name}}</a></li>
+                            </ul>
+                    </div>
+			</div>
+			<br>
+        </div>
+        <div id="photosPanel" class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title" *ngIf="photosDatas.length == 0">
+						Aucune donnee
+					</h3>
+				
+				</div>
+		
+			<div  class="panel panel-body">
+					<ul class="">
+							<li *ngFor="let lst of photosDatas"><img [src] = 'lst.url' width="50px">{{lst.albumId}}</li>
+					</ul>
+			</div>
+			<br>
+		</div>
+        
+</div>
+</div>
